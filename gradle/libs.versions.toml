@@ -1,0 +1,73 @@
+[versions]
+activityKtxVersion = "1.10.1"
+agp = "8.9.3" # Assuming this is your Android Gradle Plugin version
+appcompat = "1.7.0"
+constraintlayout = "2.2.1" # Consider updating, 2.1.4 is latest stable. 2.2.x might be alpha/beta.
+coreKtx = "1.16.0"
+espressoCore = "3.6.1"
+# fragmentKtx = "1.8.2" # Example: Check for latest stable version
+firebaseBomVersion = "33.14.0"
+glanceAppwidgetVersion = "1.1.1"
+gson = "2.11.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+kotlin = "2.1.21" # Ensure this aligns with your Kotlin Gradle Plugin version
+kotlinxCoroutinesAndroid = "1.8.1"
+lifecycleRuntimeKtx = "2.9.0" # This is a high version, ensure it's stable and what you intend
+material = "1.12.0"
+playServicesLocation = "21.3.0"
+playServicesMapsVersion = "19.2.0"
+recyclerview = "1.4.0" # Using this one
+room = "2.7.1" # Single version for all room artifacts
+ksp = "2.1.21-2.0.1"
+
+
+# Removed:
+# activity = "1.10.1" (covered by activityKtxVersion if used for the same artifact, or if androidx-activity alias isn't activityKtx)
+# playServicesMaps = "19.2.0" (version will be controlled by BOM)
+# playServicesMapsVersion = "19.0.0" (unused)
+# recyclerviewVersion = "1.3.2" (unused)
+# roomKtx = "2.7.1" (covered by room version)
+
+[libraries]
+# AndroidX Core & UI
+androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activityKtxVersion" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+# androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" } # Add this
+androidx-glance-appwidget = { module = "androidx.glance:glance-appwidget", version.ref = "glanceAppwidgetVersion" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBomVersion" }
+gms-play-services-maps = { module = "com.google.android.gms:play-services-maps", version.ref = "playServicesMapsVersion" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+# Room
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" } # Changed to use 'room' version
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+
+# Google Play Services
+play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocation" }
+play-services-maps = { group = "com.google.android.gms", name = "play-services-maps" } # No version needed here, BOM will provide it
+
+# Other
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+
+# Testing
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+# Removed androidx-activity if it's the same as androidx-activity-ktx or not used directly
+# If you had a separate 'androidx-activity = { group = "androidx.activity", name
+
+
+[plugins]
+# This is the section that defines the aliases used in your build.gradle.kts
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+# If you also want an alias for KSP, though you applied it by ID directly in build.gradle.kts
+# ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kotlinCompose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

@@ -1,0 +1,39 @@
+rv0/
+├── app/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/xa/rv0/
+│   │   │   │   ├── model/
+│   │   │   │   │   └── Contact.kt
+│   │   │   │   ├── data/
+│   │   │   │   │   ├── ContactDao.kt
+│   │   │   │   │   └── ContactDatabase.kt
+│   │   │   │   ├── adapter/
+│   │   │   │   │   └── ContactAdapter.kt
+│   │   │   │   ├── MainActivity.kt
+│   │   │   │   ├── AddEditContactActivity.kt
+│   │   │   │   ├── ViewContactsActivity.kt
+│   │   │   │   ├── MapActivity.kt
+│   │   │   │   ├── BackupRestoreActivity.kt
+│   │   │   ├── res/
+│   │   │   │   ├── layout/
+│   │   │   │   │   ├── activity_main.xml
+│   │   │   │   │   ├── activity_add_edit_contact.xml
+│   │   │   │   │   ├── activity_view_contacts.xml
+│   │   │   │   │   ├── activity_map.xml
+│   │   │   │   │   ├── activity_backup_restore.xml
+│   │   │   │   │   ├── item_contact.xml
+│   │   │   │   ├── drawable/
+│   │   │   │   │   ├── edittext_background.xml
+│   │   │   │   │   ├── contact_item_background.xml
+│   │   │   │   │   ├── button_ripple.xml
+│   │   │   │   ├── anim/
+│   │   │   │   │   ├── slide_in_right.xml
+│   │   │   │   │   ├── slide_out_left.xml
+│   │   │   │   │   ├── slide_in_left.xml
+│   │   │   │   │   ├── slide_out_right.xml
+│   │   │   │   ├── values/
+│   │   │   │   │   ├── colors.xml
+│   │   │   │   │   ├── strings.xml
+│   │   │   │   │   ├── styles.xml
+│   │   │   ├── AndroidManifest.xml

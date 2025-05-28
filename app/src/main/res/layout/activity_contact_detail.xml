@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="contact"
+            type="com.xa.rv0.model.Contact" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="?attr/colorSurfaceContainer">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            tools:context=".ContactDetailActivity">
+
+            <ImageView
+                android:id="@+id/iv_contact_avatar_detail"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_contact_avatar_placeholder"
+                android:contentDescription="@string/cd_contact_icon"
+                app:tint="?attr/colorPrimary"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"/>
+
+            <TextView
+                android:id="@+id/tv_detail_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{contact.name}"
+                android:textAppearance="?attr/textAppearanceHeadlineSmall"
+                android:textColor="?attr/colorOnSurface"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/iv_contact_avatar_detail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="John Doe" />
+
+            <LinearLayout
+                android:id="@+id/layout_quick_actions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_detail_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_call"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action_call"
+                    app:icon="@drawable/ic_call"
+                    android:layout_marginEnd="8dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_message"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action_message"
+                    app:icon="@drawable/ic_message"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_view_on_map"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action_view_on_map"
+                    app:icon="@drawable/ic_map"
+                    android:layout_marginStart="8dp"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_contact_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="12dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/layout_quick_actions"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_detail_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{contact.phoneNumber}"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textColor="?attr/colorOnSurface"
+                        app:drawableStartCompat="@drawable/ic_phone"
+                        android:drawablePadding="12dp"
+                        android:layout_marginBottom="8dp"
+                        tools:text="+1234567890" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{contact.address}"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textColor="?attr/colorOnSurface"
+                        app:drawableStartCompat="@drawable/ic_location_on"
+                        android:drawablePadding="12dp"
+                        android:layout_marginBottom="8dp"
+                        tools:text="123 Main St, Anytown" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_coordinates"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{@string/coordinates_format(contact.latitude, contact.longitude)}"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textColor="?attr/colorOnSurface"
+                        app:drawableStartCompat="@drawable/ic_map"
+                        android:drawablePadding="12dp"
+                        android:layout_marginBottom="8dp"
+                        tools:text="Lat: 34.0522, Lng: -118.2437" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_subject"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{contact.subject}"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textColor="?attr/colorOnSurface"
+                        app:drawableStartCompat="@drawable/ic_subject"
+                        android:drawablePadding="12dp"
+                        android:layout_marginBottom="8dp"
+                        tools:text="Discussing Project Alpha" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_callback_days"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{contact.callbackDays}"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textColor="?attr/colorOnSurface"
+                        app:drawableStartCompat="@drawable/ic_calendar"
+                        android:drawablePadding="12dp"
+                        android:layout_marginBottom="8dp"
+                        tools:text="Monday, Wednesday" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_callback_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{contact.callbackTime}"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textColor="?attr/colorOnSurface"
+                        app:drawableStartCompat="@drawable/ic_access_time"
+                        android:drawablePadding="12dp"
+                        android:layout_marginBottom="8dp"
+                        tools:text="14:30" />
+
+                    <TextView
+                        android:id="@+id/tv_timestamp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Placeholder for Added Timestamp"
+                        tools:text="Added: 2023-10-26 03:30 PM"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_detail_callback_time"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_edit_contact"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/action_edit_contact"
+                app:icon="@drawable/ic_edit"
+                android:layout_marginTop="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/card_contact_info"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.0"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

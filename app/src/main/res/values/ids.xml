@@ -1,0 +1,46 @@
+<resources>
+    <!-- MainActivity: Navigation buttons -->
+    <item name="btn_add_contact" type="id" />
+    <item name="btn_view_contacts" type="id" />
+    <item name="btn_map_view" type="id" />
+    <item name="btn_backup_restore" type="id" />
+
+    <!-- AddEditContactActivity: Form fields and buttons -->
+    <item name="et_name" type="id" />
+    <item name="et_phone" type="id" />
+    <item name="et_address" type="id" />
+    <item name="btn_get_location" type="id" />
+    <item name="tv_coordinates" type="id" />
+    <item name="et_subject" type="id" />
+    <item name="et_callback_days" type="id" />
+    <item name="et_callback_time" type="id" />
+    <item name="btn_save" type="id" />
+
+    <!-- ViewContactsActivity: Filter and contact list -->
+    <item name="spinner_filter_type" type="id" />
+    <item name="et_filter" type="id" />
+    <item name="rv_contacts" type="id" />
+    <item name="tv_empty_list" type="id" />
+
+    <!-- item_contact.xml: RecyclerView item views -->
+    <item name="tv_Name" type="id" />
+    <item name="tv_Phone" type="id" />
+    <item name="tv_Subject" type="id" />
+
+    <!-- MapActivity: Map fragment -->
+    <item name="map" type="id" />
+
+    <!-- BackupRestoreActivity: Backup/restore controls -->
+    <item name="btn_backup" type="id" />
+    <item name="btn_restore" type="id" />
+    <item name="progress_bar" type="id" />
+
+    <!-- Future Features: Additional UI elements -->
+    <item name="btn_delete_contact" type="id" />
+    <item name="et_search" type="id" />
+    <item name="container_main" type="id" />
+    <item name="tv_error_message" type="id" />
+    <item name="tvName" type="id" />
+    <item name="tvPhone" type="id" />
+    <item name="tvSubject" type="id" />
+</resources>

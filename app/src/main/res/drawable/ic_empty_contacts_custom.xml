@@ -1,0 +1,28 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Box outline -->
+    <path
+        android:strokeColor="#888888"
+        android:strokeWidth="2"
+        android:pathData="M10,20 h80 v60 h-80 z" />
+
+    <!-- Sad face - eye 1 -->
+    <path
+        android:fillColor="#888888"
+        android:pathData="M35,45 A5,5 0 1,0 45,45 A5,5 0 1,0 35,45z" />
+
+    <!-- Sad face - eye 2 -->
+    <path
+        android:fillColor="#888888"
+        android:pathData="M55,45 A5,5 0 1,0 65,45 A5,5 0 1,0 55,45z" />
+
+    <!-- Sad mouth -->
+    <path
+        android:strokeColor="#888888"
+        android:strokeWidth="2"
+        android:pathData="M40,65 Q50,55 60,65" />
+</vector>

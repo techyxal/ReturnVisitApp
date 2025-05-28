@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Your original colors -->
+    <color name="primaryColor">#3F51B5</color>
+    <color name="primaryDarkColor">#303F9F</color>
+    <color name="accentColor">#FF4081</color>
+    <color name="backgroundColor">#F5F5F5</color>
+    <color name="textColorPrimary">#212121</color>
+    <color name="textColorSecondary">#757575</color>
+
+    <!-- Palette 1: Modern Blue & Green -->
+    <color name="palette1_primary">#1976D2</color> <!-- Blue -->
+    <color name="palette1_primary_variant">#004BA0</color> <!-- Darker Blue -->
+    <color name="palette1_on_primary">#FFFFFF</color> <!-- White -->
+    <color name="palette1_secondary">#4CAF50</color> <!-- Green -->
+    <color name="palette1_secondary_variant">#087F23</color> <!-- Darker Green -->
+    <color name="palette1_on_secondary">#000000</color> <!-- Black -->
+
+    <!-- General Purpose Colors (if not already defined, white and black are common) -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <!-- Palette 1 Surface, Background, and Error Colors -->
+    <color name="palette1_surface">#FFFFFF</color>
+    <color name="palette1_on_surface">#000000</color>
+    <color name="palette1_background">#F5F5F5</color> <!-- Slightly off-white background -->
+    <color name="palette1_error">#D32F2F</color> <!-- A common Material Design error red -->
+    <color name="palette1_on_error">#FFFFFF</color> <!-- White text/icons on error color -->
+
+    <color name="purple_500">#9C27B0</color>
+    <color name="purple_700">#7B1FA2</color>
+    <color name="teal_200">#80CBC4</color>
+    <color name="teal_700">#00796B</color>
+    <!-- ... (You can add Palette 2 and 3 definitions here too if you want to switch between them) ... -->
+</resources>
