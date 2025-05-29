@@ -204,7 +204,7 @@ class AddEditContactActivity : AppCompatActivity() {
         val callbackTime = binding.etCallbackTime.text.toString().trim()
         val remindersEnabled = binding.switchRemindersEnabled.isChecked // NEW: Get switch state
 
-        if (name.isEmpty() || phoneNumber.isEmpty()) {
+        if (name.isEmpty()) {
             Snackbar.make(binding.root, "Name and Phone Number are required.", Snackbar.LENGTH_SHORT).show()
             return
         }
