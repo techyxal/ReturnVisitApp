@@ -8,6 +8,7 @@ espressoCore = "3.6.1"
 # fragmentKtx = "1.8.2" # Example: Check for latest stable version
 firebaseBomVersion = "33.14.0"
 glanceAppwidgetVersion = "1.1.1"
+glideVersion = "4.16.0"
 gson = "2.11.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -40,6 +41,7 @@ androidx-glance-appwidget = { module = "androidx.glance:glance-appwidget", versi
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBomVersion" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glideVersion" }
 gms-play-services-maps = { module = "com.google.android.gms:play-services-maps", version.ref = "playServicesMapsVersion" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 

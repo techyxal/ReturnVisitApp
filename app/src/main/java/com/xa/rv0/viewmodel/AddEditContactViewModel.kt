@@ -1,8 +1,7 @@
-package com.xa.rv0.model
+package com.xa.rv0.viewmodel
 
 import android.app.Application
 import android.location.Location
-import android.net.Uri
 import android.os.Looper
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
@@ -19,7 +18,7 @@ import com.google.android.gms.location.LocationSettingsRequest
 import com.google.android.gms.location.LocationSettingsResponse
 import com.google.android.gms.location.SettingsClient
 import com.xa.rv0.data.ContactDatabase
-import com.xa.rv0.model.Contact
+import com.xa.rv0.viewmodel.Contact
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -51,9 +50,6 @@ class AddEditContactViewModel(application: Application) : AndroidViewModel(appli
 
     private val _resolveLocationSettings = MutableLiveData<ResolvableApiException>()
     val resolveLocationSettings: LiveData<ResolvableApiException> = _resolveLocationSettings
-
-    private val _selectedImageUri = MutableLiveData<Uri?>()
-    val selectedImageUri: LiveData<Uri?> = _selectedImageUri
 
     private lateinit var locationCallback: LocationCallback
     private lateinit var locationRequest: LocationRequest
@@ -93,10 +89,6 @@ class AddEditContactViewModel(application: Application) : AndroidViewModel(appli
     fun setInitialCoordinates(latitude: Double, longitude: Double) {
         _currentLatitude.value = latitude
         _currentLongitude.value = longitude
-    }
-
-    fun setSelectedImageUri(uri: Uri?) {
-        _selectedImageUri.value = uri
     }
 
     fun startLocationUpdates() {
@@ -153,15 +145,11 @@ class AddEditContactViewModel(application: Application) : AndroidViewModel(appli
         subject: String,
         callbackDays: String,
         callbackTime: String,
-        currentImageUri: String? // NEW: Accept imageUri
+        remindersEnabled: Boolean // NEW: Add remindersEnabled parameter
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             val latitude = _currentLatitude.value ?: 0.0
             val longitude = _currentLongitude.value ?: 0.0
-
-            // If it's an existing contact, retrieve its current timestamp to preserve it
-            val existingContact = if (contactId != 0) contactDao.getContactById(contactId) else null
-            val timestampToUse = existingContact?.creationTimestamp ?: System.currentTimeMillis()
 
             val newContact = Contact(
                 id = contactId,
@@ -173,15 +161,14 @@ class AddEditContactViewModel(application: Application) : AndroidViewModel(appli
                 subject = subject,
                 callbackDays = callbackDays,
                 callbackTime = callbackTime,
-                imageUri = currentImageUri, // Assign the passed imageUri
-                creationTimestamp = timestampToUse // Assign the timestamp
+                remindersEnabled = remindersEnabled // NEW: Assign to Contact object
             )
 
             try {
-                if (contactId != 0) { // Existing contact
+                if (contactId != 0) {
                     contactDao.updateContact(newContact)
                     _operationStatus.postValue("Contact Updated")
-                } else { // New contact
+                } else {
                     contactDao.insertContact(newContact)
                     _operationStatus.postValue("Contact Saved")
                 }

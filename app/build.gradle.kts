@@ -72,4 +72,5 @@ dependencies {
     implementation (libs.material) // Use the latest version
     implementation (platform(libs.firebase.bom))
     implementation(libs.androidx.glance.appwidget)
+    implementation(libs.glide)
 }

@@ -11,7 +11,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.xa.rv0.databinding.ActivityMapBinding
-import com.xa.rv0.model.MapViewModel
+import com.xa.rv0.viewmodel.MapViewModel
 
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var binding: ActivityMapBinding

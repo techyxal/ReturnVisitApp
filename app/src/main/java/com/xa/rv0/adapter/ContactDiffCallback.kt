@@ -1,7 +1,7 @@
 package com.xa.rv0.adapter // Or your relevant package
 
 import androidx.recyclerview.widget.DiffUtil
-import com.xa.rv0.model.Contact // Make sure this import is correct
+import com.xa.rv0.viewmodel.Contact // Make sure this import is correct
 
 class ContactDiffCallback(
     private val oldList: List<Contact>,

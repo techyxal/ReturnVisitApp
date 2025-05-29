@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.xa.rv0.model.Contact
+import com.xa.rv0.viewmodel.Contact
 
 @Database(entities = [Contact::class], version = 2, exportSchema = false) // Increment version to 2
 abstract class ContactDatabase : RoomDatabase() {

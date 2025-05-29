@@ -26,7 +26,11 @@
             android:contentDescription="@string/cd_contact_icon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginEnd="16dp"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/image_placeholder_background"
+            android:clipToOutline="true"/>
 
         <TextView
             android:id="@+id/tv_name"
@@ -82,20 +86,6 @@
             tools:text="Callback: Mon, Wed" />
 
         <TextView
-            android:id="@+id/tv_callback_time"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textAppearance="?attr/textAppearanceBodySmall"
-            android:textColor="?attr/colorOnSurfaceVariant"
-            app:drawableStartCompat="@drawable/ic_access_time"
-            android:drawablePadding="8dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_callback_days"
-            app:layout_constraintStart_toStartOf="@id/tv_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="10:30 AM" />
-
-        <TextView
             android:id="@+id/tv_subject"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -104,21 +94,11 @@
             android:textColor="?attr/colorOnSurfaceVariant"
             app:drawableStartCompat="@drawable/ic_subject"
             android:drawablePadding="8dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_callback_time"
+            app:layout_constraintTop_toBottomOf="@id/tv_callback_days"
             app:layout_constraintStart_toStartOf="@id/tv_name"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             tools:text="Last discussion: Project Alpha" />
-
-        <TextView
-            android:id="@+id/tv_timestamp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textAppearance="?attr/textAppearanceLabelSmall"
-            android:textColor="?attr/colorOnSurfaceVariant"
-            app:layout_constraintTop_toBottomOf="@id/tv_subject"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="Added: 2024-05-28 10:30 AM" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -40,12 +40,12 @@
     <string name="title_contact_details">Return Visit Details</string>
     <string name="action_call">Call</string>
     <string name="action_message">Message</string>
-    <string name="action_view_on_map">View on Map</string>
+    <string name="action_view_on_map">Map View</string>
     <string name="action_edit_contact">Edit Return Visit</string>
 
     <string name="title_about">About App</string>
     <string name="app_version">Version 1.0.0</string>
-    <string name="app_description">Your easy to use return visits management diary. Keep track of your return visits, their locations, and important return visit details with ease.</string>
+    <string name="app_description">Need a hand keeping track of your return visits? This app makes it super easy to manage all the details, locations, and important info for each one. And hey, if you ever spot a bug or have a brilliant idea for a new feature, just hit that feedback button – we\'d love to hear from you!</string>
     <string name="privacy_policy">Privacy Policy</string>
 
     <string name="notification_channel_name">Return Visit Reminders</string>
@@ -108,8 +108,8 @@
     <string name="feedback_type_bug_label">Bug</string>
     <string name="feedback_type_feature_label">Feature</string>
 
-    <string name="github_issues_url">https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/issues/new</string>
-    <string name="feedback_email_address">your.feedback.email@example.com</string> <string-array name="days_of_week">
+    <string name="github_issues_url">https://github.com/techyxal/ReturnVisitApp/issues/new/choose</string>
+    <string name="feedback_email_address">your.feedback.techyxal@gmail.com</string> <string-array name="days_of_week">
     <item>Monday</item>
     <item>Tuesday</item>
     <item>Wednesday</item>
@@ -129,5 +129,21 @@
         <item>Callback Days</item>
         <item>Location</item>
     </string-array>
+
+
+    <string name="privacy_policy_message">This application is designed to prioritize user privacy. It does not collect any personal data beyond what users explicitly choose to provide through the feedback mechanism. All return visit information saved within this application is stored exclusively on the user\'s local device. Users acknowledge and accept that they utilize this application at their own risk, and the developers cannot be held liable for any data loss.</string>
+
+    <string name="terms_agreement_title">Terms and Agreement</string>
+    <string name="terms_agreement_content">By using this application, you agree to the following terms: This application is designed to prioritize user privacy. It does not collect any personal data beyond what users explicitly choose to provide through the feedback mechanism. All return visit information saved within this application is stored exclusively on the user\'s local device. Users acknowledge and accept that they utilize this application at their own risk, and the developers cannot be held liable for any data loss.</string>
+    <string name="button_accept">Accept</string>
+    <string name="button_decline">Decline</string>
+
+    <string name="switch_enable_reminders">Enable Reminders for this Contact</string>
+
+    <string name="no_phone_number_set">No phone number set</string>
+    reminders_disabled
+    <string name="reminders_enabled">Reminders enabled</string>
+
+    <string name="reminders_disabled">Reminders disabled</string>
 
 </resources>

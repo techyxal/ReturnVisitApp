@@ -1,4 +1,4 @@
-package com.xa.rv0.model
+package com.xa.rv0.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.xa.rv0.data.ContactDatabase
-import com.xa.rv0.model.Contact
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -55,7 +54,7 @@ class ViewContactsViewModel(application: Application) : AndroidViewModel(applica
                     "Name" -> contact.name.contains(query, ignoreCase = true)
                     "Subject" -> contact.subject.contains(query, ignoreCase = true)
                     "Callback Days" -> contact.callbackDays.contains(query, ignoreCase = true)
-                    "Phone" -> contact.phoneNumber.contains(query, ignoreCase = true)
+                    "Phone" -> contact.phoneNumber!!.contains(query, ignoreCase = true)
                     "Location" -> {
                         // Filter by address or by string representation of coordinates
                         contact.address.contains(query, ignoreCase = true) ||

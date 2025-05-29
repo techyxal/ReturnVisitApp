@@ -1,4 +1,4 @@
-package com.xa.rv0.model
+package com.xa.rv0.viewmodel
 
 import android.app.Application
 import android.net.Uri
@@ -9,7 +9,6 @@ import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.xa.rv0.data.ContactDatabase
-import com.xa.rv0.model.Contact
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

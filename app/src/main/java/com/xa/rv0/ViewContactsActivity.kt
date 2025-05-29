@@ -17,8 +17,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.xa.rv0.adapter.ContactAdapter
 import com.xa.rv0.databinding.ActivityViewContactsBinding
-import com.xa.rv0.model.Contact
-import com.xa.rv0.model.ViewContactsViewModel
+import com.xa.rv0.viewmodel.Contact
+import com.xa.rv0.viewmodel.ViewContactsViewModel
 
 class ViewContactsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityViewContactsBinding

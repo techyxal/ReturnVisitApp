@@ -1,14 +1,14 @@
 package com.xa.rv0
 
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.xa.rv0.databinding.ActivityAboutBinding
 
 class AboutActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityAboutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,46 +16,39 @@ class AboutActivity : AppCompatActivity() {
         binding = ActivityAboutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Set up the action bar/toolbar for the back button
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true) // Enable back button
         supportActionBar?.title = getString(R.string.title_about)
 
-        // Set app version dynamically (if you want to get it from BuildConfig)
-        // For simplicity, we'll use a string resource directly as requested.
-        // If you want to get it programmatically:
-        // binding.tvAboutVersion.text = getString(R.string.app_version_format, BuildConfig.VERSION_NAME)
+        // Set app name and version
+        binding.tvAppNameAbout.text = getString(R.string.app_name)
+        binding.tvAppVersion.text = getString(R.string.app_version)
+        binding.tvAppDescription.text = getString(R.string.app_description)
 
-        // Optional: Set up privacy policy button click listener
+        // Privacy Policy Button - NOW SHOWS POPUP
         binding.btnPrivacyPolicy.setOnClickListener {
-            val privacyPolicyUrl = "https://www.example.com/privacy" // Replace with your actual URL
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(privacyPolicyUrl))
-            if (intent.resolveActivity(packageManager) != null) {
-                startActivity(intent)
-            } else {
-                // Handle case where no browser is available
-                // You might show a Snackbar or Toast here
-            }
+            showPrivacyPolicyPopup()
+        }
+
+        // Feedback Button
+        binding.btnFeedbackAbout.setOnClickListener {
+            startActivity(Intent(this, FeedbackActivity::class.java))
         }
     }
 
-    // Handle the back button in the action bar
+    // NEW: Function to display the Privacy Policy popup
+    private fun showPrivacyPolicyPopup() {
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.privacy_policy)) // Use the privacy policy title
+            .setMessage(getString(R.string.privacy_policy_message)) // Your specific message
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+            .show()
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressedDispatcher.onBackPressed()
         return true
-    }
-
-    override fun finish() {
-        super.finish()
-        // Apply custom exit animation when finishing this activity
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-            overrideActivityTransition(
-                Activity.OVERRIDE_TRANSITION_CLOSE,
-                R.anim.slide_in_left,  // Animation for the activity that is appearing (MainActivity)
-                R.anim.slide_out_right // Animation for this activity (AboutActivity) that is disappearing
-            )
-        } else {
-            @Suppress("DEPRECATION")
-            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
-        }
     }
 }

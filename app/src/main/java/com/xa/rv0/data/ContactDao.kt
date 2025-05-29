@@ -1,12 +1,12 @@
 package com.xa.rv0.data
 
 import androidx.room.Dao
-import androidx.room.Delete // Import the Delete annotation
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.xa.rv0.model.Contact
+import com.xa.rv0.viewmodel.Contact
 
 @Dao
 interface ContactDao {
@@ -14,13 +14,13 @@ interface ContactDao {
     suspend fun insertContact(contact: Contact)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertContacts(contacts: List<Contact>) // For bulk insert during restore
+    suspend fun insertContacts(contacts: List<Contact>)
 
     @Update
     suspend fun updateContact(contact: Contact)
 
-    @Delete // Annotation for deleting a specific entity
-    suspend fun deleteContact(contact: Contact) // Function to delete a single contact
+    @Delete
+    suspend fun deleteContact(contact: Contact)
 
     @Query("SELECT * FROM contacts ORDER BY name ASC")
     suspend fun getAllContacts(): List<Contact>

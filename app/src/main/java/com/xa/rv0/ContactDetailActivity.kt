@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import com.xa.rv0.databinding.ActivityContactDetailBinding
-import com.xa.rv0.model.Contact
+import com.xa.rv0.viewmodel.Contact
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -105,11 +105,11 @@ class ContactDetailActivity : AppCompatActivity() {
 
     private fun setupClickListeners(contact: Contact) {
         binding.btnCall.setOnClickListener {
-            checkCallPermissionAndCall(contact.phoneNumber)
+            checkCallPermissionAndCall(contact.phoneNumber.toString())
         }
 
         binding.btnMessage.setOnClickListener {
-            sendMessage(contact.phoneNumber)
+            sendMessage(contact.phoneNumber.toString())
         }
 
         binding.btnViewOnMap.setOnClickListener {
@@ -217,4 +217,3 @@ class ContactDetailActivity : AppCompatActivity() {
         }
     }
 }
-    
